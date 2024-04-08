@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
               fetch('/api/upload')  
             .then(response => response.json())
             .then(newsList => {
-                console.log(newsList)
+                // console.log(newsList)
                 // Iterate through the news list and display each item
                 newsList.forEach(newsItem => {
                     if (newsItem.content != null){
