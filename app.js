@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch news from the server when the page loads
     fetchNews();
-
+    setInterval(fetchNews,2000);
     
     // Function to fetch and display news
     function fetchNews() {
