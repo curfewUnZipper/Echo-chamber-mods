@@ -4,6 +4,8 @@
         <title>Echo-Chamber</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/style.css">
+        <!-- <meta http-equiv="refresh" content="1"> -->
+
         <link rel="stylesheet" href="master.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,6 +13,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
         <header>
@@ -23,11 +27,9 @@
                     </li>
                     
                     <li class="nav-item">
-                      <a href="upload.html" id="nav-link">Upload</a>
+                      <a href="/upload" id="nav-link">Upload</a>
                   </li>
-                    <li class="nav-item">
-                       <button id="demo" onclick="myFunction()">Random Button!</button>
-                  </li>
+                  
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -38,15 +40,14 @@
             </nav>
         </header>
         
-<div class="jumbotron text-center">
+<div class="jumbotron text-center ">
     <h1>Echo-Chamber</h1>
     <p>Connect With your friends!</p> 
-   <p style="background-color: yellowgreen;">Note: No need to refresh the page to reach new messages (Auto refresh is added)</p>
   </div>
 
-
-
 <!-- -----------------The Dynamic Posts--------------------------- -->
+
+
 <form action="/like" method="post">
   <div class="overall"></div>
 </form>
@@ -54,13 +55,11 @@
   <source src="like.mp3" type="audio/mp3">
 </audio>
         <script>
-        function myFunction() {
-      alert("Love from Echo-Chamber and Bhargav!❤️");
-    };
-            
           function playSound() {
       var audio = document.getElementById('soundEffect');
       audio.play();}
+
+
       </script>
         <script src="/script.js"></script>
         <script src="/app.js"></script>

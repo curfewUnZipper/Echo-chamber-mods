@@ -3,7 +3,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch news from the server when the page loads
     fetchNews();
-    setInterval(fetchNews,2000);
+    setInterval(fetchNews,5000);
+
+
     
     // Function to fetch and display news
     function fetchNews() {
@@ -15,8 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 newsList.forEach(newsItem => {
                     if (newsItem.content != null){
 
+                        
+
                     const newsDiv = document.createElement('div');
                     newsDiv.className = "container";
+                    newsDiv.id = "refresh";
                     newsDiv.innerHTML = `
                         <div class="row">
                           <div class="col-sm-4 col-md-11 col-lg-12" style="text-align: center; border:1px solid white; padding:10px; border-radius: 20px; margin:10px; background-color: lightgreen;    border-top:13px solid transparent; border-right:36px solid white; border-bottom:1px solid white; ">
@@ -38,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                           </div>
                     `;
+
+                    
                     document.querySelector(".overall").insertBefore(newsDiv,document.querySelector(".overall .container:first-of-type"));
                     }
 

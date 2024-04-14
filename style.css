@@ -119,6 +119,10 @@ a{
     .nav-menu.active{
         left:0;
     }
+
+    .jumbotron.text-center {
+        background-color: yellowgreen;
+    }
 }
 /* ---------------Like-dislike--------------- */
 .post {
