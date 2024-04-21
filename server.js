@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
+require("dotenv").config();
 
 app.set("views", __dirname);
 app.set("view engine", "ejs");
@@ -50,20 +51,13 @@ app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }));
 
 //usable variables
-const user = require(path.join(__dirname,"signin", "user"));
+const user = require(path.join(__dirname, "signin", "user"));
 app.use("/user", user);
 let likeRecord = [];
 
-// Define routes for handling news operations
+// ---------------------------------Define routes for handling news operations--------------------------------
 app.get("/upload", (req, res) => {
-  var auth = require("./signin/user").auth || "random text";
-
-  if (typeof auth.userName != "undefined" && auth.userName != "null" ) {
-    res.render("upload", { userData: auth });
-  }
-  else{
-    res.redirect("/user/");
-  }
+  res.render("upload", { userData: null });
 });
 
 // Example route for retrieving news
@@ -105,13 +99,10 @@ app.get("/api/upload", async (req, res) => {
 // Example route for uploading news
 app.post("/api/upload", async (req, res) => {
   const { title, content, image } = req.body;
-
-  var auth = require("./signin/user").auth.userName;
-  console.log(auth);
   let time = new Date().toLocaleString();
   try {
-    let newsItem = new News({ title:auth, content, image, time });
-    console.log(typeof newsItem, "\n", newsItem);
+    let newsItem = new News({ title, content, image, time });
+    // console.log(typeof newsItem, "\n", newsItem);
     await newsItem.save();
     res.redirect("/");
   } catch (error) {

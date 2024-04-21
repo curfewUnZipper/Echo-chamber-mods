@@ -21,6 +21,11 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 USER = mongoose.model("User", userSchema);
+//todo
+// 1. some variable is storing user in server --> remove that variable
+// 2. null placing in message db when no user (bug occurs when u signout on diff place and upload on diff page)
+// 3. change sessionStorage --> localStorage before deploying
+// 4. also check on multiple browsers
 
 // -------------------------------------C O D E   S T A R T S   H E R E------------------------------------
 
@@ -67,36 +72,18 @@ router.post("/data", async (req, res) => {
       //sign-in code goes here
       var functionResponse = await loginUser(req.body.name, req.body.password);
       //if-else for success or fail
-      if (functionResponse == false) {
-        sendingJSON = {
-          status: "failed",
-          requestType: "singIn",
-          userName: "null",
-        };
-      } else {
-        sendingJSON = {
-          status: "success",
-          requestType: "signIn",
-          userName: functionResponse,
-        };
+      if (functionResponse != false) {
+        res.render("upload", { userData: functionResponse });
       }
-      module.exports.auth = sendingJSON;
-      res.redirect("/upload");
     }
 
     //-----------------------------------------S I G N - O U T---------------------------------------------
     else {
       //sign-out code here
-      sendingJSON = {
-        status: "success",
-        requestType: "signOut",
-        userName: "null",
-      };
-      module.exports.auth = sendingJSON;
-      res.redirect("/");
+      res.redirect("/user");
     }
   } else if (typeof req.body == "undefined") {
-    console.log("no body");
+    // console.log("no body");
     res.send("No body found you're good!");
   }
 });
@@ -127,10 +114,11 @@ async function loginUser(name, password) {
   try {
     var data = await USER.findOne({ Name: name, password: password });
     if (data == null) {
-      console.log("DB said: No such user");
+      console.log("DB said:", name, "+", password, "not in use");
       return false;
     } else {
       console.log("How have you been " + data.Name);
+
       return data.Name; //return userName to the variable where the fn was called
     }
   } catch (e) {
