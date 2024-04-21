@@ -83,7 +83,7 @@ app.get("/", async (req, res) => {
     ] = article.dislike.toString();
   });
 
-  res.sendFile(path.join(__dirname, "news.html"));
+  res.sendFile(path.join(__dirname, "landpage.html"));
 });
 
 // get put delete
@@ -93,6 +93,10 @@ app.get("/api/upload", async (req, res) => {
   // console.log(newsList)
   res.json(newsList);
 });
+
+app.get("/home",(req,res)=>{
+  res.sendFile(path.join(__dirname,"news.html"));
+  })
 
 //------------------------------------------------post----------------------------------------------------
 
