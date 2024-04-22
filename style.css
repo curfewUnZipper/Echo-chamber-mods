@@ -4,8 +4,10 @@
     box-sizing: border-box;
     font-family:sans-serif;
     font-size: 20px;
-    
+    scroll-behavior: smooth;
 }
+
+
 
 /* trial for like changes by atyab */
 
@@ -121,7 +123,7 @@ a{
     }
 
     .jumbotron.text-center {
-        background-color: yellowgreen;
+        max-height:100px
     }
 }
 /* ---------------Like-dislike--------------- */
