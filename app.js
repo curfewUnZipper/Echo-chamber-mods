@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newsDiv.id = "refresh";
             newsDiv.innerHTML = `
                         <div class="row">
-                          <div class="col-sm-4 col-md-11 col-lg-12" style="text-align: center; border:1px solid white; padding:0px; border-radius: 0px; margin:10px; background-color: #82EEFD ;  max-height:180px;  border-top:13px solid transparent; border-right:36px solid white; border-bottom:1px solid white; ">
+                          <div class="col-sm-4 col-md-11 col-lg-12" style="text-align: center; border:1px solid white; padding:0px; border-radius: 0px; margin:10px; background-color: #82EEFD ;    border-top:13px solid transparent; border-right:36px solid white; border-bottom:1px solid white; ">
                             <div class="news-container post1" data-post-id="0">
                             <h3><b>${newsItem.title}</b></h3>
                             <p>${newsItem.content}</p>
