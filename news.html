@@ -122,9 +122,9 @@
       // code for redirecting to upload or sign-in page
       function choiceRedirect() {
         if (localStorage.getItem("userOn") == null) {
-          window.location.replace(window.location.href + "user");
+          window.location.replace("user");
         } else {
-          window.location.replace(window.location.href + "upload");
+          window.location.replace( "upload");
         }
       }
     </script>

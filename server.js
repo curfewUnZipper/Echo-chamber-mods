@@ -158,20 +158,6 @@ app.post("/delete", async (req, res) => {
   res.redirect("/delete.html");
 });
 
-app.post("/pass", (req, res) => {
-  let pass = "undercook";
-
-  if (req.body.passkey == pass) {
-    res.sendFile(path.join(__dirname, "upload.html"));
-  } else {
-    res
-      .status(401)
-      .send(
-        "Wrong Password!  &nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  Ip Adress:198.02.40.7"
-      );
-  }
-});
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
